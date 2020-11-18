@@ -4,4 +4,5 @@ Igor is a question and answer site where users can sign up and choose a specialt
 # Dependencies
 ```
 pip install django==2.2
+pip install bcrypt
 ```
