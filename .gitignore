@@ -3,3 +3,4 @@
 /igor/igor/__pycache__/*
 /igor/igor_app/__pycache__/*
 /igor/igor_app/migrations/*
+/igor/db.sqlite3
