@@ -1,0 +1,5 @@
+
+/venv/*
+/igor/igor/__pycache__/*
+/igor/igor_app/__pycache__/*
+/igor/igor_app/migrations/*
