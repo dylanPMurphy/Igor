@@ -1,11 +1,20 @@
 # Igor
-Igor is a question and answer site where users can sign up and choose a specialty.  After they sign up they have the ability to ask questions to any specialty and answer any questions within thier specialty.
+Igor is a question and answer site where users can sign up and choose a specialty.  After they sign up they have the ability to ask questions to any specialty and answer any questions within their specialty.
 
 ## Dependencies
 ```
 pip install django==2.2
 pip install bcrypt
 ```
+## Features
+- User Creation/Authentication
+- Ask a question and select a specialty
+- View all questions and answers and filter by specialty
+- Answer question within signed-in user's own specialty
+- Display questions that have not been answered yet differently and pinned at the top of each feed
+
+
+
 ## Install Instructions
 
 1. Clone the repository
