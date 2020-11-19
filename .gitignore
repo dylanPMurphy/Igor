@@ -4,3 +4,6 @@
 /igor/igor_app/__pycache__/*
 /igor/igor_app/migrations/*
 /igor/db.sqlite3
+igor/login_reg/.DS_Store
+igor/.DS_Store
+.DS_Store

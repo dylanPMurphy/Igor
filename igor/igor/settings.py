@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'igor_app'
+    'igor_app',
+    'login_reg',
 ]
 
 MIDDLEWARE = [

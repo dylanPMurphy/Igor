@@ -21,6 +21,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('igor_app.urls')),
+    path('login', include('login_reg.urls'))
 ]
 
 if settings.DEBUG:
