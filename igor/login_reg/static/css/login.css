@@ -10,3 +10,47 @@ form input{
     width:970px;
 
 }
+.jumbotron{
+    background:linear-gradient(#000000,#001433, #001f4d, #002966);
+    color:#3385ff;
+    text-shadow:4px 4px black;
+  
+}
+
+.col-lg-11{
+    float:right;
+    padding-bottom:150px;
+}
+
+h1{
+    font-family:'Black Han Sans';
+}
+
+form{
+    background:linear-gradient(#000000,#001433, #001f4d, #002966);
+    padding:40px 40px 40px 40px;
+    color:#3385ff;
+    width:85%;
+    border: 3px solid #3385ff;
+
+    
+}
+
+h2, label{
+    font-family:'Blinker';
+}
+
+label{
+    font-size:14pt;
+}
+.container-fluid{
+    background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+}
+
+button.btn.btn-default{
+    background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+    color:#001433;
+    font-family:'Blinker';
+    font-size:14pt;
+    font-weight:bold;
+}
