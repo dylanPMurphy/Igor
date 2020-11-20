@@ -7,11 +7,11 @@ pip install django==2.2
 pip install bcrypt
 ```
 ## Features
-- User Creation/Authentication
-- Ask a question and select a specialty
-- View all questions and answers and filter by specialty
-- Answer question within signed-in user's own specialty
-- Display questions that have not been answered yet differently and pinned at the top of each feed
+- User Creation/Authentication [partiallt_implemented]
+- Ask a question and select a specialty [pipe]
+- View all questions and answers and filter by specialty [pipe]
+- Answer question within signed-in user's own specialty [pipe]
+- Display questions that have not been answered yet differently and pinned at the top of each feed [pipe]
 
 
 
