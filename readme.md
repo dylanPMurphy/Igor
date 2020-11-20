@@ -17,7 +17,7 @@ pip install django-debug-toolbar
 
 #### Nice to have
 - Upvote/Downvote for Answers
-- As user_who_posted the question give the option to mark an answer as the "correct answer"
+- As user_who_posted the question, give an option to mark an answer as the "correct answer"
 
 
 
