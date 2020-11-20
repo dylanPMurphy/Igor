@@ -5,13 +5,19 @@ Igor is a question and answer site where users can sign up and choose a specialt
 ```
 pip install django==2.2
 pip install bcrypt
+pip install django-debug-toolbar
 ```
 ## Features
-- User Creation/Authentication [partiallt_implemented]
+- User Creation/Authentication [partially_implemented]
+- Choose/create a specialty when signing up [pipe]
 - Ask a question and select a specialty [pipe]
 - View all questions and answers and filter by specialty [pipe]
 - Answer question within signed-in user's own specialty [pipe]
 - Display questions that have not been answered yet differently and pinned at the top of each feed [pipe]
+
+#### Nice to have
+- Upvote/Downvote for Answers
+- As user_who_posted the question give the option to mark an answer as the "correct answer"
 
 
 
