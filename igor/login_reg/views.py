@@ -6,7 +6,7 @@ from django.contrib import messages
 
 def index(request):
     if 'userid' in request.session.keys() is not None:
-        return redirect('/feed')
+        return redirect('/igor')
     else:
         return render(request, 'index.html')
 
@@ -27,9 +27,9 @@ def register(request):
             
             # be sure you set up your database so it can store password hashes this long (60 characters)
             # make sure you put the hashed password in the database, not the one from the form!
-            newUser = User.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], username=request.POST['username'], password=pw_hash, email=request.POST['email'])
+            newUser = User.objects.create(username=request.POST['username'], password=pw_hash, email=request.POST['email'])
             request.session['userid'] = newUser.id
-            return redirect('/feed') 
+            return redirect('/igor')
             #Create an account
 
 
@@ -45,7 +45,7 @@ def login(request):
                 # if we get True after checking the password, we may put the user id in session
                 request.session['userid'] = logged_user.id
                 # never render on a post, always redirect!
-                return redirect('/feed')
+                return redirect('/igor')
             else:
                 messages.error(request, "Username or password incorrect")
                 return redirect('/')
