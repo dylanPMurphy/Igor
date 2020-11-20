@@ -32,9 +32,6 @@ def register(request):
             return redirect('/feed') 
             #Create an account
 
-def reg_success(request):
-    return render(request, 'successful_REG.html')
-
 
 def login(request):
     if request.method =="POST":
@@ -56,12 +53,6 @@ def login(request):
             messages.error(request, "Username or password incorrect")
             return redirect('/')
 
-def success(request):
-
-    context = {
-        'session_user':User.objects.get(id=request.session['userid'])
-    }
-    return render(request, 'successful_LOGIN.html', context)
 
 def logout(request):
     request.session.flush()
