@@ -6,4 +6,5 @@
 /igor/db.sqlite3
 igor/login_reg/.DS_Store
 igor/.DS_Store
+.idea/*
 .DS_Store
