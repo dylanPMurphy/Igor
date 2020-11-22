@@ -32,3 +32,17 @@ def ask_question(request):
             return HttpResponse("ERROR NO USER LOGGED IN")
     else:
         return HttpResponse("ERROR USE POST ROUTE")
+
+
+def view_question(request, question_id):
+    if 'userid' in request.session:
+        authenticated_user = User.objects.get(id=request.session['userid'])
+
+        context = {
+            'authenticated_user': authenticated_user,
+            'selected_question': Question.objects.get(id=question_id)
+        }
+        return render(request, 'results.html')
+    else:
+        return HttpResponse("ERROR NO USER LOGGED IN")
+        
