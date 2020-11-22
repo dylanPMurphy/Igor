@@ -13,20 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="jumbotron text-center">
-            <h1>Welcome to Igor</h1>
-            <h2>The General Q&A Assistant for the Average Person</h2>
-        </div>
-        {% if messages %}
-        <ul class="messages">    
-            {% for message in messages %}    
-                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-            {% endfor %}
-        </ul>
-        {% endif %}
-        <div class="col-lg-11" id="main_content">
-            <div class="col-lg-6" id="register">
                 <form action="/register" method="POST">
                     <h2>REGISTER</h2>
                     {%csrf_token%}
