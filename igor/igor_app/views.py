@@ -8,10 +8,10 @@ def profile(request):
     context = {
         'user':user
     }
-    return render(request, 'pages/profile.html', context)
+    return render(request, 'mypage.html', context)
 
 def about(request):
-    return render(request, 'pages/about.html')
+    return render(request, 'about.html')
 
 def questions(request):
-    return render(request, 'pages/wanted.html')
+    return render(request, 'want_ad.html')
