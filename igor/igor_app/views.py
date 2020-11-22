@@ -42,7 +42,7 @@ def view_question(request, question_id):
             'authenticated_user': authenticated_user,
             'selected_question': Question.objects.get(id=question_id)
         }
-        return render(request, 'results.html')
+        return render(request, 'results.html', context)
     else:
         return HttpResponse("ERROR NO USER LOGGED IN")
 
@@ -59,4 +59,3 @@ def answer_question(request, question_id):
                 parent_question = question_to_answer
             )
             return reditect('/igor/questions/'+str(question_id))
-            
