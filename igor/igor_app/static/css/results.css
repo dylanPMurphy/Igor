@@ -1,0 +1,10 @@
+.jumbotron{
+    background:linear-gradient(#000000,#001433, #001f4d, #002966);
+    color:#3385ff;
+    text-shadow:4px 4px black;
+  
+}
+
+.container-fluid{
+    background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+}
