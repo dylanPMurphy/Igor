@@ -6,4 +6,6 @@ urlpatterns = [
     url(r'^$', views.profile),
     path('about/', views.about),
     path('questions', views.questions),
+    path('questions/ask', views.ask_question),
+    
 ]

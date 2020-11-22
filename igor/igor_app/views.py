@@ -8,10 +8,27 @@ def profile(request):
     context = {
         'user':user
     }
-    return render(request, 'pages/profile.html', context)
+    return render(request, 'mypage.html', context)
 
 def about(request):
-    return render(request, 'pages/about.html')
+    return render(request, 'about.html')
 
 def questions(request):
-    return render(request, 'pages/wanted.html')
+    return render(request, 'want_ad.html')
+
+def ask_question(request):
+    if request.method =="POST":
+        if 'userid' in request.session:
+            authenticated_user = User.objects.get(id=request.session['userid'])
+            question_content = request.POST['question_content']
+            question_specialty = request.POST['specialty']
+            Question.objects.create(
+                user_who_posted = authenticated_user,
+                content = question_content,
+                specialty = question_specialty
+            )
+            return redirect('/igor/')
+        else:
+            return HttpResponse("ERROR NO USER LOGGED IN")
+    else:
+        return HttpResponse("ERROR USE POST ROUTE")
