@@ -45,4 +45,18 @@ def view_question(request, question_id):
         return render(request, 'results.html')
     else:
         return HttpResponse("ERROR NO USER LOGGED IN")
-        
+
+
+def answer_question(request, question_id):
+    if request.method =="POST":
+        if 'userid' in request.session:
+            authenticated_user = User.objects.get(id=request.session['userid'])
+            question_to_answer = Question.objects.get(id=question_id)
+            answer_content =  request.POST['answer_content']
+            Answer.objects.create(
+                content = answer_content,
+                user_who_posted = authenticated_user,
+                parent_question = question_to_answer
+            )
+            return reditect('/igor/questions/'+str(question_id))
+            
