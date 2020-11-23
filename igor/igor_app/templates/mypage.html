@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid">
         <div class="jumbotron text-center">
-            <h1>Igor</h1>
+            <a href="/igor/"><h1>Igor</h1></a>
             <a href="/logout">Log Out</a>
             <a href="about">About Igor</a>
             <a href="questions">Want_Ad</a>
@@ -37,5 +37,10 @@
 
                 <button type="submit">Ask</button>
             </form>
+            {%for question in users_questions%}
+                <h4>{{question.content}}</h4>
+                <h5>{{user.username}}</h5>
+            {%endfor%}
+
         </div>
     </div>

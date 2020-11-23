@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, HttpResponse
 from login_reg.models import User
 from .models import *
 
@@ -6,7 +6,8 @@ from .models import *
 def profile(request):
     user = User.objects.get(id=request.session['userid'])
     context = {
-        'user':user
+        'user':user,
+        'users_questions':user.posts.all()
     }
     return render(request, 'mypage.html', context)
 
@@ -14,7 +15,13 @@ def about(request):
     return render(request, 'about.html')
 
 def questions(request):
-    return render(request, 'want_ad.html')
+    user = User.objects.get(id=request.session['userid'])
+    context = {
+        'authenticated_user':user,
+        'questions':Question.objects.all()
+    }
+
+    return render(request, 'want_ad.html', context)
 
 def ask_question(request):
     if request.method =="POST":

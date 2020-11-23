@@ -3,16 +3,17 @@ from login_reg.models import *
 # Create your models here.
 
 
-class Specialty(models.Model):
-    name = models.CharField(max_length=45)
-    users_with_specialty = models.ManyToManyField(User, "specialty")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
+SPECIALTY_CHOICES =[
+    ('Food', "Food"),
+    ("Cars","Cars"),
+    ("Clothes", "Clothes"),
+    ("Computer", "Computer"),
+    ("Health", "Health")
+]
 class Question(models.Model):
     content = models.TextField()
     user_who_posted = models.ForeignKey(User, related_name="posts", on_delete = models.CASCADE)
-    specialty = models.ForeignKey(Specialty, related_name="questions_in_specialty", on_delete = models.CASCADE)
+    specialty = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
