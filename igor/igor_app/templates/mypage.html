@@ -19,6 +19,23 @@
             <a href="/logout">Log Out</a>
             <a href="about">About Igor</a>
             <a href="questions">Want_Ad</a>
-            <h2>Hello {{ user.username }}. What Would You Like to Ask Today></h2>
+            <h2>Hello {{ user.username }}.</h2>
+            <form action="questions/ask/" method="POST">
+                {% csrf_token %}
+                <label for="question_content" >What would you like to ask today?</label>
+                <textarea name="question_content" rows="3" cols="40"></textarea>
+
+                <label for="specialty">Specialist needed?:</label>
+                <select name="specialty" size="1">
+                    <option>Choose...</option>
+                    <option value="food">Food</option>
+                    <option value="cars">Cars</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="computer">Computer</option>
+                    <option value="health">Health</option>
+                </select>
+
+                <button type="submit">Ask</button>
+            </form>
         </div>
     </div>
