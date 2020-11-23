@@ -7,16 +7,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Black Han Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
-    <title>Igor-Search Results</title>
+    <title>Igor-Question and Answers</title>
     {%load static%}
-    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/results.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="container-fluid">
+    <div class="container-fluid">   
         <div class="jumbotron text-center">
-            <h1>About Igor</h1>
+            <h1>Igor: Q & A</h1>
+            <p><a href="/logout">Log Out</a> | <a href="/about">About Igor</a> | <a href="questions">Help Wanted</a> | <a href="/">My Page</a></p>
+        </div>
+        <div class="col-lg-11">
+           <div class="col-lg-6">
+           {%for question in questions%}
+                <p>{{question.content}}</p>
+            {% endfor %}
+            <p>{{user.username}}</p>
+             <img src="{%static 'img/temp_pic.png'%}" id="temp"/>
+           </div>
         </div>
     </div>
+<script>
+$(document).ready( function () {
+    $("a").hover(function(){
+        $(this).css("color", "#3385ff");
+        $(this).css("text-decoration", "none");
+        }, function(){
+        $(this).css("color", "#d9d9d9");
+    });
+});
+</script>
 </body>
 </html>

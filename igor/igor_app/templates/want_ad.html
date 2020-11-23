@@ -9,27 +9,57 @@
     <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
     <title>Igor-Wanted</title>
     {%load static%}
-    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/want_ad.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
         <div class="jumbotron text-center">
-            <a href="/igor/"><h1>Igor</h1></a>
-            <a href="/logout">Log Out</a>
-            <a href="about">About Igor</a>
-            <a href="questions">Want_Ad</a>
-            <h2>Hello {{ user.username }}.</h2>
-            {%for question in questions%}
-                <div>
-                    <h4>{{question.content}}</h4>
-                    <h5>{{question.user_who_posted.username}}</h5>
-                    <h6>{{question.specialty}}</h6>
+            <h1>Igor: Welcome To the Help Wanted Page</h1>
+            <p id="header"><a href="/logout">Log Out</a> | <a href="/about">About Igor</a> | <a href="/">My Page</a></p></p>
+        </div>
+        <div class="col-lg-11">
+            <div class="col-lg-9">
+                <form action="questions/ask/" method="POST">
+                    {% csrf_token %}
+                    <label for="question_content" ><h2> What Would You Like To Ask Today?</h2></label>
+                    <br>
+                    <textarea name="question_content" rows="3" cols="80"></textarea>
+                    <br>
+                    <label for="specialty">Specialist needed?:</label>
+                    <select name="specialty" size="1">
+                        <option>Choose...</option>
+                        <option value="food">Food</option>
+                        <option value="cars">Cars</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="computer">Computer</option>
+                        <option value="health">Health</option>
+                    </select>
+
+                    <button type="submit">Ask</button>
+                </form>
+            </div>
+            <br>
+            <div class="col-lg-9">
+                {%for question in questions%}
+                <div class="one_question">
+                    <h2>{{question.content}}</h2>
+                    <p>{{question.user_who_posted.username}} - {{question.specialty}}</p>
                 </div>
-                
-            {%endfor%}
+                {% endfor %}
+            </div>
 
         </div>
     </div>
+<script>
+$(document).ready( function () {
+    $("a").hover(function(){
+        $(this).css("color", "#3385ff");
+        $(this).css("text-decoration", "none");
+        }, function(){
+        $(this).css("color", "#d9d9d9");
+    });
+});
+</script>
 </body>
 </html>

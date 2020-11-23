@@ -65,4 +65,4 @@ def answer_question(request, question_id):
                 user_who_posted = authenticated_user,
                 parent_question = question_to_answer
             )
-            return reditect('/igor/questions/'+str(question_id))
+            return redirect('/igor/questions/'+str(question_id))

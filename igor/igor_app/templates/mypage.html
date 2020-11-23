@@ -9,38 +9,73 @@
     <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
     <title>Igor-My Page</title>
     {%load static%}
-    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/mypage.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container-fluid">
         <div class="jumbotron text-center">
-            <a href="/igor/"><h1>Igor</h1></a>
-            <a href="/logout">Log Out</a>
-            <a href="about">About Igor</a>
-            <a href="questions">Want_Ad</a>
-            <h2>Hello {{ user.username }}.</h2>
-            <form action="questions/ask/" method="POST">
-                {% csrf_token %}
-                <label for="question_content" >What would you like to ask today?</label>
-                <textarea name="question_content" rows="3" cols="40"></textarea>
+            <h1>Igor: {{user.username}}'s Home Page</h1>
+            <p><a href="/logout">Log Out</a> | <a href="/about">About Igor</a> | <a href="questions">Help Wanted</a></p>
+        </div>
+        <div class="col-lg-11">
+            <div class="col-lg-4">
+                <p id="user_info">User-Occupation</p>
+                <img src="{%static 'img/temp_pic.png'%}" id="temp"/>
+            </div>
+            <br>
+            <div class="col-lg-6">
+                <form action="questions/ask/" method="POST">
+                    {% csrf_token %}
+                    <label for="question_content" ><h2>Hello, {{ user.username }}. What Would You Like To Ask Today?</h2></label>
+                    <br>
+                    <textarea name="question_content" rows="3" cols="80"></textarea>
+                    <br>
+                    <label for="specialty">Specialist needed?:</label>
+                    <select name="specialty" size="1">
+                        <option>Choose...</option>
+                        <option value="food">Food</option>
+                        <option value="cars">Cars</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="computer">Computer</option>
+                        <option value="health">Health</option>
+                    </select>
 
-                <label for="specialty">Specialist needed?:</label>
-                <select name="specialty" size="1">
-                    <option>Choose...</option>
-                    <option value="food">Food</option>
-                    <option value="cars">Cars</option>
-                    <option value="clothes">Clothes</option>
-                    <option value="computer">Computer</option>
-                    <option value="health">Health</option>
-                </select>
-
-                <button type="submit">Ask</button>
-            </form>
-            {%for question in users_questions%}
-                <h4>{{question.content}}</h4>
-                <h5>{{user.username}}</h5>
-            {%endfor%}
+                    <button type="submit">Ask</button>
+                </form>
+            </div>
+            <table class="table table-bordered" id="my_questions">
+                <thead>
+                    <tr>
+                        <th>I've Asked Igor...(My Questions)</th>
+                        <th>Check Request</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {%for question in users_questions%}
+                    <tr>
+                        <td>Q: {{question.content}}</td>
+                        <td id="answer"><a href="questions/{{question.id}}/answer" id="answer_link">Answers</a>     <img src="{%static 'img/chat.png'%}" id="chat"/></td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+              
 
         </div>
     </div>
+<script>
+$(document).ready( function () {
+    $("a").hover(function(){
+        $(this).css("color", "#3385ff");
+        $(this).css("text-decoration", "none");
+        }, function(){
+        $(this).css("color", "#d9d9d9");
+    });
+    $("button").click(function(){
+        $('td').fadeIn();
+    });
+});
+</script>
+</body>
+</html>

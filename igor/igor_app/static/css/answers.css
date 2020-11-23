@@ -7,4 +7,13 @@
 
 .container-fluid{
     background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+    padding-bottom:100px;
+}
+
+a, p{
+    font-size:24pt;
+}
+
+a{
+    color:#d9d9d9;
 }

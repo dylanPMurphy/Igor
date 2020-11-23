@@ -8,3 +8,69 @@
 .container-fluid{
     background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
 }
+
+
+a, p#header{
+    font-size:24pt;
+    font-family:'Blinker';
+}
+
+a{
+    color:#d9d9d9;
+}
+
+h1{
+    font-family:'Black Han Sans';
+}
+
+h2, label{
+    font-family:'Blinker';
+    color:#3385ff;
+}
+
+.col-lg-9{
+    background: linear-gradient(#000000,#001433, #001f4d, #002966);
+    border:1px solid #ddd;
+    padding: 40px 40px 40px 40px;
+    margin-bottom:30px;
+    text-align:center;
+}   
+.col-lg-11{
+    padding-left:200px;
+    float:right;
+}    
+
+
+select{
+    width:200px;
+}
+label{
+    font-size:14pt;
+}
+
+button{
+    background: linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+    width:100px;
+    color:#001433;
+    font-family:'Blinker';
+    font-size:14pt;
+    font-weight: bold;
+    padding:5px 5px 5px 5px;
+    margin-left:10px;
+}
+
+p{
+    font-size:14pt;
+    color:#3385ff;
+}
+
+.one_question{
+    border:1px solid #ddd;
+    padding: 40px 40px 40px 40px;
+    margin-bottom:30px;
+    text-align:center;
+}
+
+
+
+
