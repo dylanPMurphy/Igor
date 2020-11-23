@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-
+from igor_app.models import *
 import re
 # Create your models here.\
 class UserManager(models.Manager):
@@ -22,6 +22,7 @@ class User(models.Model):
     username =  models.CharField(max_length=40)
     email = models.CharField(max_length=50)
     password = models.TextField()
+    specialty = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
