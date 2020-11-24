@@ -44,7 +44,7 @@
                 {%for question in questions%}
                 <div class="one_question">
                     <h2>{{question.content}}</h2>
-                    <p>{{question.user_who_posted.username}} - {{question.specialty}}</p>
+                    <p>{{question.user_who_posted.username}} - {{question.specialty | capfirst}}</p>
                 </div>
                 {% endfor %}
             </div>
