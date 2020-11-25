@@ -8,3 +8,37 @@
 .container-fluid{
     background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
 }
+
+a, p#header{
+    font-size:24pt;
+    font-family:'Blinker';
+    color: white;
+}
+
+a{
+    color:#d9d9d9;
+}
+
+h1{
+    font-family:'Black Han Sans';
+}
+
+.col-lg-11{
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+h2, p{
+    color:#001433;
+    font-family:'Blinker'
+
+}
+
+h2{
+    font-weight:bold;
+    font-family:'Black Han Sans'
+}
+
+p{
+    font-size:20pt;
+}
