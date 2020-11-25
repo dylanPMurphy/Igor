@@ -6,6 +6,7 @@ Igor is a question and answer site where users can sign up and choose a specialt
 pip install django==2.2
 pip install bcrypt
 pip install django-debug-toolbar
+pip install Pillow
 ```
 ## Features
 - User Creation/Authentication [partially_implemented]
