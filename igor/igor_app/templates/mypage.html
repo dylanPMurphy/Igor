@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="jumbotron text-center">
             <h1>Igor: {{user.username}}'s Home Page</h1>
-            <p><a href="/logout">Log Out</a> | <a href="/about">About Igor</a> | <a href="questions">Help Wanted</a></p>
+            <p><a href="/logout">Log Out</a> | <a href="/igor/about">About Igor</a> | <a href="questions">Help Wanted</a></p>
         </div>
         <div class="col-lg-11">
             <div class="col-lg-4">
@@ -55,7 +55,7 @@
                 {%for question in users_questions%}
                     <tr>
                         <td>Q: {{question.content}}</td>
-                        <td id="answer"><a href="questions/{{question.id}}/answer" id="answer_link">Answers</a>     <img src="{%static 'img/chat.png'%}" id="chat"/></td>
+                        <td id="answer"><a href="questions/{{question.id}}" id="answer_link">Answers</a>     <img src="{%static 'img/chat.png'%}" id="chat"/></td>
                     </tr>
                 {%endfor%}
                 </tbody>

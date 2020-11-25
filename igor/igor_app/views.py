@@ -1,6 +1,32 @@
 from django.shortcuts import render, redirect, HttpResponse
 from login_reg.models import User
+from django.contrib import messages
 from .models import *
+from django.core.files.storage import FileSystemStorage
+import bcrypt 
+from .forms import ProfileForm
+
+
+def create_profile(request):
+    if request.method == 'POST':
+        errors=Profile.objects.profile_validator(request.POST)
+        if len(errors) !=0:
+            for key, value in errors.items():
+                messages.error(request,value)
+            return redirect('/create')
+        form = ProfileForm(request.POST, request.FILES) 
+        owner_id=request.session['user_id']
+        workout_type =request.POST.getlist('workout_type')
+        Profile.objects.create(
+            owner=User.objects.get(id=owner_id),
+            first_name=request.POST['first_name'],
+            occupation=request.POST['occupation'],
+            about=request.POST['about'],
+            img=request.FILES['img']
+        )
+
+    print(request.FILES)
+    return redirect('/profile')
 
 # Create your views here.
 def profile(request):
