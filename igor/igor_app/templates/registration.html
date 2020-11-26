@@ -13,3 +13,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>Igor: {{user.username}}'s Home Page</h1>
+            <p><a href="/logout">Log Out</a> | <a href="/igor/about">About Igor</a> | <a href="questions">Help Wanted</a></p>
+        </div>
+        <div class="col-lg-11">
+            <div class="col-lg-4">
+                <p id="user_info">User-Occupation</p>
+                <img src="{%static 'img/temp_pic.png'%}" id="temp"/>
+            </div>
+            <br>
+            <div class="col-lg-6">
+                <form action="/igor/create/" method="POST">
+                    {%csrf_token%}
+                    {{form.as_p}}
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

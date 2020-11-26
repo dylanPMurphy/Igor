@@ -6,6 +6,16 @@ from django.core.files.storage import FileSystemStorage
 import bcrypt 
 from .forms import ProfileForm
 
+def finish_profile(request):
+    profile_form = ProfileForm()
+    context={
+        "form": profile_form,
+        "user": User.objects.get(id=request.session['userid'])
+    }
+    return render(request, 'registration.html', context)
+
+
+
 
 def create_profile(request):
     if request.method == 'POST':
@@ -15,27 +25,33 @@ def create_profile(request):
                 messages.error(request,value)
             return redirect('/create')
         form = ProfileForm(request.POST, request.FILES) 
-        owner_id=request.session['user_id']
-        workout_type =request.POST.getlist('workout_type')
+        owner_id=request.session['userid']
+        # workout_type =request.POST.getlist('workout_type')
         Profile.objects.create(
             owner=User.objects.get(id=owner_id),
             first_name=request.POST['first_name'],
             occupation=request.POST['occupation'],
             about=request.POST['about'],
-            img=request.FILES['img']
+            img=request.POST['img']
         )
 
     print(request.FILES)
-    return redirect('/profile')
+    return redirect('/igor/')
 
 # Create your views here.
 def profile(request):
+    
     user = User.objects.get(id=request.session['userid'])
-    context = {
-        'user':user,
-        'users_questions':user.posts.all()
-    }
-    return render(request, 'mypage.html', context)
+    if user.profile is None:
+        return redirect('registration/')
+    else:
+        context = {
+            'user':user,
+            'users_questions':user.posts.all(),
+            'user_profile':user.profile,
+            'IMG_URL':"/static/img/"+str(user.profile.img.name)
+        }
+        return render(request, 'mypage.html', context)
 
 def about(request):
     return render(request, 'about.html')

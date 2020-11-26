@@ -7,8 +7,8 @@ from .models import Profile
 class ProfileForm(forms.Form):
     first_name=forms.CharField(max_length=20, required=True)
     occupation=forms.CharField(max_length=20, required=True)
-    about=forms.Textarea()
-    img=forms.ImageField(required=False)
+    about=forms.CharField(widget=forms.Textarea(attrs={"rows":5, "cols":20}))
+    img=forms.FileField(required=False, widget=forms.ClearableFileInput())
 
     class Meta:
         model = Profile
