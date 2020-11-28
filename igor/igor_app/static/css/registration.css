@@ -8,3 +8,7 @@
 .container-fluid{
     background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
 }
+
+h1, h2{
+    font-family:'Black Han Sans';
+}

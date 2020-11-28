@@ -9,7 +9,22 @@
     <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
     <title>Igor-Registration</title>
     {%load static%}
-    <link rel="stylesheet" href="{% static 'css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'css/registration.css'%}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="jumbotron text-center">
+            <h1>Igor Registration</h1>
+            <h2>Complete Your Profile</h2>   
+        </div>
+        <div class="col-lg-11">
+            <form action="/create_profile" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{profileform.as_p}}
+            <input type="submit" value="Complete Profile">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
