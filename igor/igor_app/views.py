@@ -43,7 +43,6 @@ def create_profile(request):
             return redirect('/create')
         form = ProfileForm(request.POST, request.FILES) 
         owner_id=request.session['userid']
-        workout_type =request.POST.getlist('workout_type')
         Profile.objects.create(
             owner=User.objects.get(id=owner_id),
             first_name=request.POST['first_name'],

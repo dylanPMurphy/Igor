@@ -7,8 +7,57 @@
 
 .container-fluid{
     background:linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+    padding-bottom:200px;
 }
 
 h1, h2{
     font-family:'Black Han Sans';
 }
+
+.col-lg-11{
+    background: linear-gradient(#000000,#001433, #001f4d, #002966);
+    margin-left:75px;
+}
+
+form{
+    font-family:'Blinker';
+    color:#3385ff;
+    padding: 50px 20px 50px 20px;
+    text-align:center;
+}
+input[type=file]{
+    display:inline-block;
+}
+
+label{
+    font-size:20pt;
+    vertical-align:top;
+    
+}
+
+input{
+    vertical-align:middle;
+}
+
+p{
+    padding-top:10px;
+}
+
+input#id_first_name, input#id_occupation, input#id_about, input#id_img{
+    margin-top:10px;
+    margin-left:10px;
+}
+
+input#submit{
+    background: linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
+    width:200px;
+    color:#001433;
+    font-family:'Blinker';
+    font-size:14pt;
+    font-weight:bold;
+}
+
+
+
+
+

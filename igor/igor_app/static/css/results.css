@@ -15,7 +15,12 @@
 }
 
 .col-lg-6{
-    margin-left:400px;
+    border: 2px solid #001433;
+    margin-top:15px;
+    margin-bottom:15px;
+    text-align:center;
+    border-radius: 6px;
+    
 }
 
 a, p#header{
@@ -36,11 +41,12 @@ h1{
     height:25px;
 }
 
-h3#question{
+h2#question{
     background:linear-gradient(#000000,#001433, #001f4d, #002966);
     color: #3385ff;
     font-family:'Black Han Sans';
     padding: 20px 20px 20px 20px;
+    border-radius: 6px;
 }
 
 h4, h3{
@@ -48,11 +54,12 @@ h4, h3{
     font-family:'Black Han Sans';
 }
 
-p, h4#answer{
+ h4#answer{
     
     background:linear-gradient(#000000,#001433, #001f4d, #002966);
     color: #3385ff;
-    margin-right:50px;
-    font-family: 'Blinker'
+    font-family: 'Blinker';
+    padding:7px 7px 7px 7px;
+    border-radius: 6px;
 }
 

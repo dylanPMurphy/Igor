@@ -17,10 +17,12 @@
 
 table#my_questions.table.table-bordered, .col-lg-6, .col-lg-4{
     background: linear-gradient(#000000,#001433, #001f4d, #002966);
+    border-radius: 6px;
 }
 
 table#my_questions.table.table-bordered{
     margin-left:70px;
+    border-radius: 6px;
 }
 
 h1{
@@ -63,6 +65,7 @@ td#answer{
     border:1px solid #ddd;
     padding: 40px 40px 40px 40px;
     margin-bottom:30px;
+    border-radius: 6px;
 }
 
 a, p{
@@ -105,6 +108,23 @@ button{
 .col-lg-6{
     margin-left:25px;
     float:right;
+}
+
+#avatar{
+    width:300px;
+    height:300px;
+}
+
+p#user_info{
+    font-size: 18pt;
+}
+
+button.btn.btn-danger{
+    width:200px;
+    font-family:'Blinker';
+    font-size:14pt;
+    font-weight: bold;
+    color:black;
 }
 
 

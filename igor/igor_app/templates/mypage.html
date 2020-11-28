@@ -20,8 +20,8 @@
         </div>
         <div class="col-lg-11">
             <div class="col-lg-4">
-                <p id="user_info">User-Occupation</p>
-                <img src="{%static 'img/temp_pic.png'%}" id="temp"/>
+                <p id="user_info">{{ user.profile.first_name}}-{{user.profile.occupation}}</p>
+                <img src='{{ user.profile.img.url }}' id="avatar"/>
             </div>
             <br>
             <div class="col-lg-6">
@@ -54,8 +54,12 @@
                 <tbody>
                 {%for question in users_questions%}
                     <tr>
-                        <td>Q: {{question.content}}</td>
-                        <td id="answer"><a href="questions/{{question.id}}" id="answer_link">Answers</a>     <img src="{%static 'img/chat.png'%}" id="chat"/></td>
+                        <td>Q: {{question.content}} </td>
+                        <td id="answer"><a href="questions/{{question.id}}" id="answer_link">Answers</a><img src="{%static 'img/chat.png'%}" id="chat"/>
+                        {% if question.user_who_posted.id == request.session.userid %}
+                                <button class="btn btn-danger">Delete Question</button>
+                        {% endif %}
+                        </td>
                     </tr>
                 {%endfor%}
                 </tbody>

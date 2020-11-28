@@ -28,12 +28,13 @@ h2, label{
     color:#3385ff;
 }
 
-.col-lg-9{
+.col-lg-8, .col-lg-12{
     background: linear-gradient(#000000,#001433, #001f4d, #002966);
     border:1px solid #ddd;
     padding: 40px 40px 40px 40px;
     margin-bottom:30px;
     text-align:center;
+    border-radius: 6px;
 }   
 .col-lg-11{
     padding-left:200px;
@@ -48,7 +49,7 @@ label{
     font-size:14pt;
 }
 
-button{
+button, button.btn.btn-primary{
     background: linear-gradient(#3385ff,#1a75ff,#0052cc,#0047b3);
     width:100px;
     color:#001433;
@@ -62,6 +63,7 @@ button{
 p{
     font-size:14pt;
     color:#3385ff;
+    font-family:'Blinker';
 }
 
 table.dataTable tbody tr{
@@ -72,7 +74,47 @@ thead, tbody{
     color:#3385ff;
     font-family:'Blinker';
     text-align:center;
+    font-size:18pt;
 
+}
+
+thead{
+    font-size:22pt;
+}
+
+#all_users_info.dataTables_info{
+    color:#3385ff;
+    font-family:'Blinker';
+}
+
+a#all_users_previous.paginate_button.previous.disabled, a#all_users_next.paginate_button.next.disabled{
+    font-size:14pt;
+}
+
+span{
+    width:35px;
+}
+
+a.paginate_button.current{
+    width:35px;
+    height:35px;
+    font-size:14pt;
+}
+
+form{
+    font-size:14pt;
+}
+
+a#question{
+    font-size:18pt;
+}
+
+button.btn.btn-danger{
+    width:200px;
+    font-family:'Blinker';
+    font-size:14pt;
+    font-weight: bold;
+    color:black;
 }
 
 

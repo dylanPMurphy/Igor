@@ -21,8 +21,7 @@
             <h1>Igor: Welcome To the Help Wanted Page</h1>
             <p id="header"><a href="/logout">Log Out</a> | <a href="/igor/about">About Igor</a> | <a href="/">My Page</a></p></p>
         </div>
-        <div class="col-lg-11">
-            <div class="col-lg-9">
+            <div class="col-lg-8 col-lg-offset-2">
                 <form action="/igor/questions/ask/" method="POST">
                     {% csrf_token %}
                     <label for="question_content" ><h2> What Would You Like To Ask Today?</h2></label>
@@ -43,25 +42,25 @@
                 </form>
             </div>
             <br>
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                  <div id="searchtext">
                     <p>Use the Search Bar to See If Your Question Has Been Asked</p>
+                    <p>Click On A Question To See All The Answers</p>
                 </div>
-<<<<<<< HEAD
             <table id='all_users' class="table table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th class="th-sm">Question</th>
                         <th class="th-sm">Asked By</th>
                         <th class="th-sm">Specialty</th>
-                        <th class="th-sm">Answer</th>
+                        <th class="th-sm">Answer The Question</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for question in questions %}
                     <tr>
-                        <td>{{question.content}}</td>
-                        <td>{{question.user_who_posted.username}}</td>
+                        <td><a href="/igor/questions/{{question.id}}" id="question">{{question.content}}</a></td>
+                        <td>{{question.user_who_posted.profile.first_name}}- {{question.user_who_posted.profile.occupation}}</td>
                         <td>{{question.specialty}}</td>
                         <td id="answer_question">
                             <form action="/igor/questions/{{question.id}}/answer" method="post">
@@ -71,55 +70,18 @@
                                         <button class="btn btn-primary">Answer</button>
                                     </div>
                              </form>
+                             {% if question.user_who_posted.id == request.session.userid %}
+                                <button class="btn btn-danger">Delete Question</button>
+                            {% endif %}
                         </td> 
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
     
-=======
-                <table id="#all_questions" class="table table-bordered table-sm" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th class="th-sm">Question</th>
-                            <th class="th-sm">Asked By</th>
-                            <th class="th-sm">Specialty</th>
-                            <th class="th-sm">Answer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {%for question in questions%}
-                        <tr>
-                            <td>{{question.content}}</td>
-                            <td>{{question.user_who_posted.username}}</td>
-                            <td>{{question.specialty}}</td>
-                            <td id="answer_question">
-                             {% if authenticated_user == question.user_who_posted %}
-                                <form action="/igor/questions/{{question.id}}/delete" method="post">
-                                    {% csrf_token %}
-                                        <div class="form-group">
-                                            <button class="btn btn-primary">Delete</button>
-                                        </div>
-                                </form>
-                             {% else %}
-                                <form action="/igor/questions/{{question.id}}/answer" method="post">
-                                    {% csrf_token %}
-                                        <div class="form-group">
-                                            <input class="form-contol" name="content" id="content" type="text">
-                                            <button class="btn btn-primary">Answer</button>
-                                        </div>
-                                </form>
-                             {% endif %}
-                            </td>
-
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
->>>>>>> 9d9620a15565d9acfde17f87d9e41cbc11f717be
             </div>
 
-        </div>
+        
     </div>
 
 <script>
