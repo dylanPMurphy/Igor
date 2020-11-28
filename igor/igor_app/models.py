@@ -39,7 +39,7 @@ class ProfileManager(models.Manager):
         return errors
 
 class Profile(models.Model):
-    owner=models.ForeignKey(User, related_name="profile_owner", on_delete=models.CASCADE)
+    owner=models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE, primary_key=True)
     first_name=models.CharField(max_length=20)
     occupation=models.CharField(max_length=20)
     about=models.TextField()
