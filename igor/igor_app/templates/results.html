@@ -20,9 +20,11 @@
         </div>
         <div class="col-lg-11">
            <div class="col-lg-6">
-           {%for question in questions%}
-                <p>{{question.content}}</p>
-            {% endfor %}
+                <p>{{selected_question.content}}</p>
+                {% for answer in selected_question.answers.all %}
+                    {{answer.content}}
+                    {{answer.user_who_answered.profile.first_name}} - {{answer.user_who_answered.profile.occupation}} <img src='{{ answer.user_who_answered.profile.img.url }}' id="avatar">
+                {% endfor %}
             <p>{{user.username}}</p>
              <img src="{%static 'img/temp_pic.png'%}" id="temp"/>
            </div>

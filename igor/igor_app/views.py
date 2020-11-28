@@ -105,10 +105,10 @@ def answer_question(request, question_id):
         if 'userid' in request.session:
             authenticated_user = User.objects.get(id=request.session['userid'])
             question_to_answer = Question.objects.get(id=question_id)
-            answer_content =  request.POST['answer_content']
+            answer_content =  request.POST['content']
             Answer.objects.create(
                 content = answer_content,
-                user_who_posted = authenticated_user,
+                user_who_answered = authenticated_user,
                 parent_question = question_to_answer
             )
             return redirect('/igor/questions/'+str(question_id))
