@@ -41,12 +41,35 @@
             </div>
             <br>
             <div class="col-lg-9">
-                {%for question in questions%}
-                <div class="one_question">
-                    <h2>{{question.content}}</h2>
-                    <p>{{question.user_who_posted.username}} - {{question.specialty}}</p>
+                <div id="searchtext">
+                    <p>Use the Search Bar to See If Your Question Has Been Asked"</p>
                 </div>
-                {% endfor %}
+                <table id="#all_questions" class="table table-bordered table-sm" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">Question</th>
+                            <th class="th-sm">Asked By</th>
+                            <th class="th-sm">Specialty</th>
+                            <th class="th-sm">Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {%for question in questions%}
+                        <tr>
+                            <td>{{question.content}}</td>
+                            <td>{{question.user_who_posted.username}}</td>
+                            <td>{{question.specialty}}</td>
+                            <td id="answer_question">
+                            <form action="/answer_question" method="post">
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        <input class="form-contol" name="content" id="content" type="text">
+                                    </div>
+                            </form></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
 
         </div>
