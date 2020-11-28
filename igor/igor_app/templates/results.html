@@ -16,19 +16,24 @@
     <div class="container-fluid">   
         <div class="jumbotron text-center">
             <h1>Igor: Q & A</h1>
-            <p><a href="/logout">Log Out</a> | <a href="/igor/about">About Igor</a> | <a href="questions">Help Wanted</a> | <a href="/">My Page</a></p>
+            <p class="header"><a href="/logout">Log Out</a> | <a href="/igor/about">About Igor</a> | <a href="/igor/questions">Help Wanted</a> | <a href="/">My Page</a></p>
         </div>
         <div class="col-lg-11">
-           <div class="col-lg-6">
-                <p>{{selected_question.content}}</p>
-                {% for answer in selected_question.answers.all %}
-                    {{answer.content}}
-                    {{answer.user_who_answered.profile.first_name}} - {{answer.user_who_answered.profile.occupation}} <img src='{{ answer.user_who_answered.profile.img.url }}' id="avatar">
-                {% endfor %}
-            <p>{{user.username}}</p>
-             <img src="{%static 'img/temp_pic.png'%}" id="temp"/>
-           </div>
+            <div class="col-lg-6">
+                <h4> Question Asked By : {{selected_question.user_who_posted.username}}</h4>
+                <h3 id="question">{{selected_question.content}}</h3>
+         
+            </div>
+            <div class="col-lg-6">
+                <h3>Answers:</h3>
+                    {% for answer in selected_question.answers.all %}
+                        <p>{{answer.user_who_answered.profile.first_name}} - {{answer.user_who_answered.profile.occupation}} <img src='{{ answer.user_who_answered.profile.img.url }}' id="avatar"></p><h4 id="answer"> {{answer.content}} </h4>
+                    {% endfor %}
+                
+            </div>
+               
         </div>
+       
     </div>
 <script>
 $(document).ready( function () {

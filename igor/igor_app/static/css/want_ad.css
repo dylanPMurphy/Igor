@@ -64,11 +64,15 @@ p{
     color:#3385ff;
 }
 
-.one_question{
-    border:1px solid #ddd;
-    padding: 40px 40px 40px 40px;
-    margin-bottom:30px;
+table.dataTable tbody tr{
+    background: linear-gradient(#000000,#001433, #001f4d, #002966);
+}
+
+thead, tbody{
+    color:#3385ff;
+    font-family:'Blinker';
     text-align:center;
+
 }
 
 

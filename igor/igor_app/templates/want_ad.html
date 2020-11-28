@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Igor-Help Wanted</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Black Han Sans' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Blinker' rel='stylesheet'>
-    <title>Igor-Wanted</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/want_ad.css'%}">
 </head>
@@ -43,51 +44,52 @@
             </div>
             <br>
             <div class="col-lg-9">
-                <div id="searchtext">
-                    <p>Use the Search Bar to See If Your Question Has Been Asked"</p>
+                 <div id="searchtext">
+                    <p>Use the Search Bar to See If Your Question Has Been Asked</p>
                 </div>
-                <table id="#all_questions" class="table table-bordered table-sm" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th class="th-sm">Question</th>
-                            <th class="th-sm">Asked By</th>
-                            <th class="th-sm">Specialty</th>
-                            <th class="th-sm">Answer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {%for question in questions%}
-                        <tr>
-                            <td>{{question.content}}</td>
-                            <td>{{question.user_who_posted.username}}</td>
-                            <td>{{question.specialty}}</td>
-                            <td id="answer_question">
+            <table id='all_users' class="table table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Question</th>
+                        <th class="th-sm">Asked By</th>
+                        <th class="th-sm">Specialty</th>
+                        <th class="th-sm">Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for question in questions %}
+                    <tr>
+                        <td>{{question.content}}</td>
+                        <td>{{question.user_who_posted.username}}</td>
+                        <td>{{question.specialty}}</td>
+                        <td id="answer_question">
                             <form action="/igor/questions/{{question.id}}/answer" method="post">
                                 {% csrf_token %}
                                     <div class="form-group">
                                         <input class="form-contol" name="content" id="content" type="text">
                                         <button class="btn btn-primary">Answer</button>
                                     </div>
-                            </form></td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                             </form>
+                        </td> 
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    
             </div>
 
         </div>
     </div>
+
 <script>
 $(document).ready( function () {
-    $('#all_questions').DataTable();
+    $('#all_users').DataTable();
 } );
-
     $("a").hover(function(){
-        $(this).css("color", "#3385ff");
-        $(this).css("text-decoration", "none");
-        }, function(){
-        $(this).css("color", "#d9d9d9");
-    });
+    $(this).css("color", "#26bcff");
+    $(this).css("text-decoration", "none");
+    }, function(){
+    $(this).css("color", "white");
 });
 </script>
 </body>
