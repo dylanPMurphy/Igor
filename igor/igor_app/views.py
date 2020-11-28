@@ -7,6 +7,33 @@ import bcrypt
 from .forms import ProfileForm
 
 
+
+
+# Create your views here.
+def profile(request):
+    user = User.objects.get(id=request.session['userid'])
+    try:
+        user.profile
+    except:
+        return redirect('registration/')
+    else:
+        user = User.objects.get(id=request.session['userid'])
+        context = {
+            'user':user,
+            'users_questions':user.posts.all()
+        }
+        return render(request, 'mypage.html', context)
+
+
+def finish_profile(request):
+    profile_form = ProfileForm()
+    context={
+        "profile_form": profile_form,
+        "user": User.objects.get(id=request.session['userid'])
+    }
+    return render(request, 'registration.html', context)
+
+
 def create_profile(request):
     if request.method == 'POST':
         errors=Profile.objects.profile_validator(request.POST)
@@ -28,14 +55,7 @@ def create_profile(request):
     print(request.FILES)
     return redirect('/profile')
 
-# Create your views here.
-def profile(request):
-    user = User.objects.get(id=request.session['userid'])
-    context = {
-        'user':user,
-        'users_questions':user.posts.all()
-    }
-    return render(request, 'mypage.html', context)
+
 
 def about(request):
     return render(request, 'about.html')
