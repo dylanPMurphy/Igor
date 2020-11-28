@@ -112,3 +112,10 @@ def answer_question(request, question_id):
                 parent_question = question_to_answer
             )
             return redirect('/igor/questions/'+str(question_id))
+
+def delete_question(request, question_id):
+    if request.method == "POST":
+        if 'userid' in request.session:
+            question_to_delete = Question.objects.get(id=question_id)
+            question_to_delete.delete()
+            return redirect('/igor/questions/')
