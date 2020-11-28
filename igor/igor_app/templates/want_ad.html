@@ -22,7 +22,7 @@
         </div>
         <div class="col-lg-11">
             <div class="col-lg-9">
-                <form action="questions/ask/" method="POST">
+                <form action="/igor/questions/ask/" method="POST">
                     {% csrf_token %}
                     <label for="question_content" ><h2> What Would You Like To Ask Today?</h2></label>
                     <br>
@@ -62,13 +62,24 @@
                             <td>{{question.user_who_posted.username}}</td>
                             <td>{{question.specialty}}</td>
                             <td id="answer_question">
-                            <form action="/igor/questions/{{question.id}}/answer" method="post">
-                                {% csrf_token %}
-                                    <div class="form-group">
-                                        <input class="form-contol" name="content" id="content" type="text">
-                                        <button class="btn btn-primary">Answer</button>
-                                    </div>
-                            </form></td>
+                             {% if authenticated_user == question.user_who_posted %}
+                                <form action="/igor/questions/{{question.id}}/delete" method="post">
+                                    {% csrf_token %}
+                                        <div class="form-group">
+                                            <button class="btn btn-primary">Delete</button>
+                                        </div>
+                                </form>
+                             {% else %}
+                                <form action="/igor/questions/{{question.id}}/answer" method="post">
+                                    {% csrf_token %}
+                                        <div class="form-group">
+                                            <input class="form-contol" name="content" id="content" type="text">
+                                            <button class="btn btn-primary">Answer</button>
+                                        </div>
+                                </form>
+                             {% endif %}
+                            </td>
+
                         </tr>
                     {% endfor %}
                     </tbody>
